@@ -47,7 +47,7 @@ Most tables can be found at the following website:  [www.thonky.com](https://www
 ------------
 This file contains all the functions to simplify drawing on the display.
 
- ###### **test/*.asm**
+ ###### **test/*.asm** and **test/*.json**
 ------------
 All files with this scheme are unit tests.
 
