@@ -47,9 +47,11 @@ Most tables can be found at the following website:  [www.thonky.com](https://www
 ------------
 This file contains all the functions to simplify drawing on the display.
 
- ###### **test/*.asm**
+ ###### **test/*.asm** and **test/*.json**
 ------------
 All files with this scheme are unit tests.
+> Note:
+In the graphical representation, not many unit tests can be created, as tests are only useful if the entire image is checked. If the entire memory is inserted into the json file, unfortunately gedit crashes and the json file can't be created.
 
 ## Test
 Screenshot that shows succedded (unit) tests 
