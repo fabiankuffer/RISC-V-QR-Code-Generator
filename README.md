@@ -28,25 +28,26 @@ Detailed instructions on how to create QR codes can be found at the following li
 Execute the file *src/main.asm* in RARS. To display the QR code, the bitmap display must be opened. Set the resolution to 256x256 pixels. Other resolutions can be set in *src/qr_data.asm*. For input, the Keyboard and Display MMIO Simulator must be opened.
 
 ## Files
-######**src/main.asm**
+
+###### **src/main.asm**
 ------------
  Main file of program
  
-######**src/qr_data.asm**
+###### **src/qr_data.asm**
 ------------
 This file contains all the data needed to create QR codes of any size.
 Most tables can be found at the following website:  [www.thonky.com](https://www.thonky.com/qr-code-tutorial/introduction)
  
- ######**src/qr_draw.asm**
+###### **src/qr_draw.asm**
 ------------
  This file contains all the steps to graphically display the generated code words in a QR code. It also checks which mask is the best for this QR code.
 > Unfortunately, the comments are mostly in German.
 
- ######**src/draw_fun.asm**
+ ###### **src/draw_fun.asm**
 ------------
 This file contains all the functions to simplify drawing on the display.
 
- ######**test/*.asm**
+ ###### **test/*.asm**
 ------------
 All files with this scheme are unit tests.
 
