@@ -1,15 +1,6 @@
-.include "qr_data.asm"
-.data
-p1_UI_welcome_message: .asciz "Welcome!\nFor creating a qr-Code you have to add some information!\nPlease enter the string you want to convert!\n[max.2953 characters]\n"
-p1_user_Message2: .asciz "Now Please enter the Error-Correction-Level for the QR-Code!\n0=L\t1=M\t2=Q\t3=H\n"
-p1_user_Message2_invalidInput: .asciz "\n\nThere was a problem with the Level you typed in!\nPlease try again!\n\n"
-
-
-.text
-
-li gp, MESSAGE_CODEWORD_ADDRESS
-
 UI:
+    #store ra in stackpointer
+    sw ra, (sp)
     #t0 is used as a var for the different addresses
     #welcome message
     li a7, 4
@@ -343,5 +334,5 @@ p1_padding_for_loop:
 
 p1_padding_for_loop.end:
 
-
-#:(
+lw ra, (sp)
+jalr zero, 0(ra)

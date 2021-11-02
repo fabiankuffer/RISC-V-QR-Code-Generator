@@ -1,44 +1,28 @@
+#   ___    ____             ____    ___    ____    _____            ____   _____   _   _   _____   ____       _      _____    ___    ____  
+#  / _ \  |  _ \           / ___|  / _ \  |  _ \  | ____|          / ___| | ____| | \ | | | ____| |  _ \     / \    |_   _|  / _ \  |  _ \ 
+# | | | | | |_) |  _____  | |     | | | | | | | | |  _|    _____  | |  _  |  _|   |  \| | |  _|   | |_) |   / _ \     | |   | | | | | |_) |
+# | |_| | |  _ <  |_____| | |___  | |_| | | |_| | | |___  |_____| | |_| | | |___  | |\  | | |___  |  _ <   / ___ \    | |   | |_| | |  _ < 
+#  \__\_\ |_| \_\          \____|  \___/  |____/  |_____|          \____| |_____| |_| \_| |_____| |_| \_\ /_/   \_\   |_|    \___/  |_| \_\
+                                                                                                                                          
+                                                                                                                                          
+#data header that stores all
 .include "qr_data.asm"
 
 .text
-#tmp version setzen
-la t0, qr_version
-li t1, 5
-sb t1, 0(t0)
+#get the user input (message and error correction level)
+jal ra, UI
 
-#tmp ecl setzen
-la t0, error_correction_level
-li t1, 3
-sb t1, 0(t0)
-
-#tmp daten setzen
-#text: "Hallo ich bin"
-#ecl und qr version siehe oben
-##########################################################################################################################################
-li t0, MESSAGE_CODEWORD_ADDRESS
-li t1, 0
-li t2, 46
-la t3, p2_message
-p2_data_start:
-lbu t4, (t3)
-sb t4, (t0)
-addi t0, t0, 1
-addi t3, t3, 1
-addi t1, t1, 1
-blt t1, t2, p2_data_start
-li gp, FINAL_DATA
-##########################################################################################################################################
-
-#call encoding
+#generate the error correction codes and bring data into the correct format
 jal ra, p2_start
 
-#zeichnen aufrufen
+#find out the best masking pattern and display the final qr code
 jal ra, draw
 
-#beendet das programm
+#quit the program
 li a7, 10
 ecall	
 
-#muss am ende stehen sonst wird der code dort drin ausgeführt
-.include "generate_error-correction.asm"
+#functions for each part
+.include "qr_generate-error-correction.asm"
 .include "qr_draw.asm"
+.include "qr_user-input.asm"
