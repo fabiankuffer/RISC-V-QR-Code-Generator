@@ -3,94 +3,34 @@
 .text
 #tmp version setzen
 la t0, qr_version
-li t1, 1
+li t1, 5
 sb t1, 0(t0)
 
 #tmp ecl setzen
 la t0, error_correction_level
-li t1, 0
+li t1, 3
 sb t1, 0(t0)
 
 #tmp daten setzen
-li t3, FINAL_DATA
-li t2, 0x41
-sb t2, 0(t3)
+#text: "Hallo ich bin"
+#ecl und qr version siehe oben
+##########################################################################################################################################
+li t0, MESSAGE_CODEWORD_ADDRESS
+li t1, 0
+li t2, 46
+la t3, p2_message
+p2_data_start:
+lbu t4, (t3)
+sb t4, (t0)
+addi t0, t0, 1
 addi t3, t3, 1
-li t2, 0x14
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x86
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x56
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0xc6
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0xc6
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0xf2
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0xc2
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x07
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x76
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0xf7
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x26
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0xc6
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x42
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x12
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x03
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x13
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x23
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x30
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x85
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0xa9
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x5e
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x07
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x0a
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0x36
-sb t2, 0(t3)
-addi t3, t3, 1
-li t2, 0xc9
-sb t2, 0(t3)
-addi t3, t3, 1
+addi t1, t1, 1
+blt t1, t2, p2_data_start
+li gp, FINAL_DATA
+##########################################################################################################################################
+
+#call encoding
+jal ra, p2_start
 
 #zeichnen aufrufen
 jal ra, draw
@@ -100,4 +40,5 @@ li a7, 10
 ecall	
 
 #muss am ende stehen sonst wird der code dort drin ausgeführt
+.include "generate_error-correction.asm"
 .include "qr_draw.asm"
