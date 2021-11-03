@@ -36,7 +36,7 @@ Execute the file *src/main.asm* in RARS. To display the QR code, the bitmap disp
  
 ###### **src/qr_user-input.asm**
 ------------
-TEXT
+This file processes the input string. Error Correction Level and Version are saved in "qr_data.asm". The Data will be encoded and padded with certain Paddingbytes in the process.
 
 ###### **src/qr_generate-error-correction.asm**
 ------------
