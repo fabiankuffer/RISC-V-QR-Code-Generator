@@ -40,7 +40,7 @@ TEXT
 
 ###### **src/qr_generate-error-correction.asm**
 ------------
-TEXT
+This file contains all functions that are needed to create the error correction codewords and zips those codewords with the initial message together and saves them into the final data buffer.
  
 ###### **src/qr_data.asm**
 ------------
