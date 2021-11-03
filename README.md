@@ -25,8 +25,7 @@ Detailed instructions on how to create QR codes can be found at the following li
 
 ### How to run
 
-Execute the file *src/main.asm* in RARS. To display the QR code, the bitmap display must be opened. Set the resolution to 256x256 pixels. Other resolutions can be set in *src/qr_data.asm*. For input, the Keyboard and Display MMIO Simulator must be opened.
-
+Execute the file *src/main.asm* in RARS. To display the QR code, the bitmap display must be opened. Set the resolution to 256x256 pixels. Other resolutions can be set in *src/qr_data.asm*. To interact with the programme use the tab "RUN I/O"
 ## Files
 
 ###### **src/main.asm**
