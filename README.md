@@ -52,11 +52,11 @@ Most tables can be found at the following website:  [www.thonky.com](https://www
  This file contains all the steps to graphically display the generated code words in a QR code. It also checks which mask is the best for this QR code.
 > Unfortunately, the comments are mostly in German.
 
- ###### **src/draw_fun.asm**
+###### **src/draw_fun.asm**
 ------------
 This file contains all the functions to simplify drawing on the display.
 
- ###### **test/*.asm** and **test/*.json**
+###### **test/*.asm** and **test/*.json**
 ------------
 All files with this scheme are unit tests.
 > Note:
