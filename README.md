@@ -9,7 +9,7 @@ Minimal implementation of a QR code generator in Assembly for RISC-V architectur
 
 ## Demo Video
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/-h3eH4ubuno/0.jpg)](http://www.youtube.com/watch?v=-h3eH4ubuno "Video Title")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/0HXz-XnS0W4/0.jpg)](http://www.youtube.com/watch?v=0HXz-XnS0W4 "RISC-V QR-Code-Generator")
 
 ## Description
 
