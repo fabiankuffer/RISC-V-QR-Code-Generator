@@ -23,6 +23,8 @@ Detailed instructions on how to create QR codes can be found at the following li
 - [www.nayuki.io](https://www.nayuki.io/page/creating-a-qr-code-step-by-step)
 - [www.thonky.com](https://www.thonky.com/qr-code-tutorial/introduction)
 
+- [format information for QR codes](https://github.com/zxing/zxing/wiki/Barcode-Contents)
+
 ### How to run
 
 Execute the file *src/main.asm* in RARS. To display the QR code, the bitmap display must be opened. Set the resolution to 256x256 pixels. Other resolutions can be set in *src/qr_data.asm*. To interact with the programme use the tab "RUN I/O".
@@ -31,6 +33,14 @@ Execute the file *src/main.asm* in RARS. To display the QR code, the bitmap disp
 ###### **src/main.asm**
 ------------
  Main file of program
+ 
+###### **src/qr_user-input.asm**
+------------
+TEXT
+
+###### **src/qr_generate-error-correction.asm**
+------------
+TEXT
  
 ###### **src/qr_data.asm**
 ------------
