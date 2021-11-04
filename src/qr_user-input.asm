@@ -150,23 +150,6 @@ j p1_version_GreaterThanNine
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #The input is saved 3 Bytes to the left than normally to make space for both character count indicator and select mode indicator
 #Both indicators will be saved directly in front of the data and wil be shifted as much as needed to get to the origin address (0x10140000)
 
@@ -239,11 +222,6 @@ p1_BitShift_Done:
 
     ret
 
-###################################################################
-
-#not needed? because always byte mode -> already multiplier of 8, no terminator zeros 
-#if needed add in here 
-##################################################################
 
 #idea: no terminator Bits needed because: Only Byte Mode -> Character Count already Multiplier of 8
 #the left shift already filled the last 4 Bits of the relevant Buffer Location with 4 Zeros 
