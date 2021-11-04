@@ -220,6 +220,7 @@ p2_zip_to_final_data:
 	#iterator s10 of both loops
 	li s10, 0										#s10: bytes saved in full block offset, iterator
 	
+	sub s11, s11, s4
 	#loops through all bytes s3 that should be saved in a full block offset s4
 	p2_zip_to_final_data_loop_full_blocks:
 		#loop exit condition: all full block data saved
@@ -230,8 +231,8 @@ p2_zip_to_final_data:
 		lbu t1, (t0)
 		
 		#save byte
-		sb t1, (s11)
 		add s11, s11, s4
+		sb t1, (s11)
 		
 		#increment iterator s10
 		addi s10, s10, 1
@@ -239,6 +240,7 @@ p2_zip_to_final_data:
 
 	p2_zip_to_final_data_loop_full_blocks_end:
 	
+	#sub s11, s1, s5
 	#loops through all bytes s6 that should be saved in a full block offset s5
 	p2_zip_to_final_data_loop_long_blocks:
 		#loop exit condition: all long block data saved
