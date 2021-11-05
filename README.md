@@ -63,7 +63,8 @@ All files with this scheme are unit tests.
 In the graphical representation, not many unit tests can be created, as tests are only useful if the entire image is checked. If the entire memory is inserted into the json file, unfortunately gedit crashes and the json file can't be created.
 
 ## Test
-Screenshot that shows succedded (unit) tests 
+Screenshot that shows succedded unittests:
+![Screenshot 2021-11-05 004854](https://user-images.githubusercontent.com/83594506/140438059-6cf34454-feb5-4045-8b4e-ed3a01b5f161.png)
 
 ## License
 MIT License
